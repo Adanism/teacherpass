@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d34lsaobm125l"]
+
+[ext_resource type="Script" uid="uid://rbfji4kck3qk" path="res://Scripts/player.gd" id="1_4flbx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i3pqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v0iea"]
+radius = 21.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 9.536743e-07)
+scale = Vector2(24, 34.000004)
+texture = SubResource("PlaceholderTexture2D_i3pqv")
+
+[node name="Item_detector" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Item_detector"]
+shape = SubResource("CircleShape2D_v0iea")
+debug_color = Color(0.95374244, 0.17841747, 0.32151124, 0.41960785)
+
+[connection signal="area_entered" from="Item_detector" to="." method="_on_item_detector_area_entered"]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://bxr3enqgx83e3"]
+
+[ext_resource type="Script" uid="uid://te5fjyobg2ca" path="res://Scripts/item_resource.gd" id="1_f1sof"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_f1sof"]
+
+[resource]
+script = ExtResource("1_f1sof")
+item_name = "Ball"
+description = "Round like"
+texture = SubResource("CanvasTexture_f1sof")

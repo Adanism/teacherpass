@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqyh3vwris17x"]
+
+[ext_resource type="PackedScene" uid="uid://d34lsaobm125l" path="res://Scenes/player.tscn" id="1_vp2v7"]
+[ext_resource type="PackedScene" uid="uid://cmsfdg2spc74y" path="res://Scenes/item.tscn" id="2_nb675"]
+[ext_resource type="PackedScene" uid="uid://bjuyq5v26eb43" path="res://Scenes/item_manager.tscn" id="3_18lj0"]
+[ext_resource type="Script" uid="uid://buo0nv17pl2r6" path="res://Scripts/item_manager.gd" id="4_26jq3"]
+
+[node name="MainTest" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vp2v7")]
+
+[node name="Item_Manager" parent="." instance=ExtResource("3_18lj0")]
+position = Vector2(158, 108)
+script = ExtResource("4_26jq3")
+
+[node name="Ball" parent="." instance=ExtResource("2_nb675")]
+position = Vector2(158, 109)
+
+[connection signal="item_pickup" from="Player" to="Item_Manager" method="_on_player_item_pickup"]
+[connection signal="area_entered" from="Ball" to="Item_Manager" method="_on_ball_area_entered"]
